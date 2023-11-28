@@ -33,9 +33,9 @@ environ.Env.read_env(BASE_DIR / '.env')
 SECRET_KEY = 'django-insecure-macvc0$$=12hbuh+t1n^ac1zeudf3zp33qs^5gaez7@4&sc50j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['asareblogcom-production.up.railway.app']
 
 
 # Application definition
