@@ -40,6 +40,7 @@ SECRET_KEY = 'django-insecure-macvc0$$=12hbuh+t1n^ac1zeudf3zp33qs^5gaez7@4&sc50j
 DEBUG = env('DEBUG')
 PLATFORM = env('PLATFORM')
 
+
 ALLOWED_HOSTS = ['asareblogcom-production.up.railway.app']
 
 
