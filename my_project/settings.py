@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 import environ
+import dj_database_url
+
 
 env = environ.Env(
     # set casting, default value
@@ -25,6 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Take environment variables from .env file
 environ.Env.read_env(BASE_DIR / '.env')
 
+DATABASE_URL = env('DATABASE_URL')
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -34,6 +38,7 @@ SECRET_KEY = 'django-insecure-macvc0$$=12hbuh+t1n^ac1zeudf3zp33qs^5gaez7@4&sc50j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
+PLATFORM = env('PLATFORM')
 
 ALLOWED_HOSTS = ['asareblogcom-production.up.railway.app']
 
@@ -98,13 +103,19 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if PLATFORM == 'local':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+elif PLATFORM == 'production':
+    DATABASES = dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=600,
+        conn_health_checks=True,
+    )
 
 
 # Password validation
