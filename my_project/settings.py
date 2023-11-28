@@ -70,6 +70,9 @@ STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
 }
 
 ROOT_URLCONF = 'my_project.urls'
@@ -163,8 +166,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = env('EMAIL_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
 
-
-DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
 
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_KEY')
