@@ -37,7 +37,7 @@ DATABASE_URL = env('DATABASE_URL')
 SECRET_KEY = 'django-insecure-macvc0$$=12hbuh+t1n^ac1zeudf3zp33qs^5gaez7@4&sc50j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
 
 ALLOWED_HOSTS = ['asareblogcom-production.up.railway.app']
