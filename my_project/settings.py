@@ -38,7 +38,6 @@ SECRET_KEY = 'django-insecure-macvc0$$=12hbuh+t1n^ac1zeudf3zp33qs^5gaez7@4&sc50j
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
-PLATFORM = env('PLATFORM')
 
 
 ALLOWED_HOSTS = ['asareblogcom-production.up.railway.app']
@@ -113,9 +112,15 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 # }
 
 DATABASES = {
-
-    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=600, conn_health_checks=True)
-
+    'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('PGDATABASE'),
+        'USER': env('PGUSER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('PGHOST'),
+        'PORT': env('PGPORT'),
+    }
 }
 
 
