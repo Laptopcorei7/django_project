@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_protect
+# from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 
 
-@csrf_protect
+# @csrf_protect
 def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -21,7 +21,6 @@ def register(request):
 
 
 @login_required
-@csrf_protect
 def profile(request):
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
