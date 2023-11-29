@@ -39,6 +39,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['asareblogcom-production.up.railway.app']
 
+CSRF_TRUSTED_ORIGINS = ['https://asareblogcom-production.up.railway.app']
+
 
 # Application definition
 
