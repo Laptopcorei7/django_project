@@ -39,7 +39,7 @@ DEBUG = env('DEBUG')
 DEBUG_PROPAGATE_EXCEPTIONS = True
 
 
-ALLOWED_HOSTS = ['https://asareblogcom-production.up.railway.app/']
+ALLOWED_HOSTS = ['https://asareblogcom-production.up.railway.app']
 
 CSRF_TRUSTED_ORIGINS = ['https://asareblogcom-production.up.railway.app']
 
