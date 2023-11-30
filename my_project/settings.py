@@ -36,8 +36,10 @@ SECRET_KEY = 'django-insecure-macvc0$$=12hbuh+t1n^ac1zeudf3zp33qs^5gaez7@4&sc50j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
-ALLOWED_HOSTS = ['asareblogcom-production.up.railway.app']
+
+ALLOWED_HOSTS = ['127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = ['https://asareblogcom-production.up.railway.app']
 
@@ -103,23 +105,23 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3'
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('PGDATABASE'),
-        'USER': env('PGUSER'),
-        'PASSWORD': env('PGPASSWORD'),
-        'HOST': env('PGHOST'),
-        'PORT': env('PGPORT'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3'
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('PGDATABASE'),
+#         'USER': env('PGUSER'),
+#         'PASSWORD': env('PGPASSWORD'),
+#         'HOST': env('PGHOST'),
+#         'PORT': env('PGPORT'),
+#     }
+# }
 
 
 # Password validation
