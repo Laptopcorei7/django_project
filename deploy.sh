@@ -7,4 +7,4 @@ railway run python manage.py migrate
 railway run python manage.py collectstatic --noinput
 
 # Restart the Gunicorn server
-railway restart
+railway up
